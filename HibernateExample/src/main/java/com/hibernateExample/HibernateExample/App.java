@@ -17,18 +17,26 @@ public class App
     public static void main( String[] args )
     {
     	
-    	    
+    	    Employee e = null;
       Configuration con = new Configuration().configure().addAnnotatedClass(Employee.class).addAnnotatedClass(Laptop.class);
     
        SessionFactory sf=con.buildSessionFactory();
       Session session=sf.openSession();
       
-       session.beginTransaction();
       
-  
-  
-      
-      session.getTransaction().commit();
+       session.beginTransaction(); 
+       e=(Employee)session.get(Employee.class,1);
+       System.out.println(e);
+       session.getTransaction().commit();
+       session.close();
+       
+       
+       Session session1=sf.openSession();
+       session1.beginTransaction();
+       e=(Employee)session1.get(Employee.class,1);
+       System.out.println(e);
+      session1.getTransaction().commit();
+      session1.close();
      
     }
 }

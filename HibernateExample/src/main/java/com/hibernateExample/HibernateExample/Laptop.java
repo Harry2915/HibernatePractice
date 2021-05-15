@@ -44,8 +44,9 @@ private Employee employee;
 	}
 	@Override
 	public String toString() {
-		return "Laptop [lid=" + lid + ", lname=" + lname + ", lprice=" + lprice + ", employee=" + employee + "]";
+		return "Laptop [lid=" + lid + ", lname=" + lname + ", lprice=" + lprice + "]";
 	}
+	
 	
 	
 	

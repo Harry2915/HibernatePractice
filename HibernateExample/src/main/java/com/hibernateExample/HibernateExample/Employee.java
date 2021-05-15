@@ -3,14 +3,21 @@ package com.hibernateExample.HibernateExample;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 @Entity()
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 
 public class Employee {
 	@Id
@@ -51,9 +58,9 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + ", laptop=" + laptop + "]";
+		return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + "]";
 	}
-	
+
 
 	
 
