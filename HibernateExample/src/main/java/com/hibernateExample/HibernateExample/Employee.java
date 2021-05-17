@@ -24,8 +24,8 @@ public class Employee {
 	public int eid;
 	public String ename;
 	public int salary;
-	@OneToMany(mappedBy = "employee",fetch=FetchType.EAGER)
-	private List<Laptop> laptop= new ArrayList<Laptop>();
+//	@OneToMany(mappedBy = "employee",fetch=FetchType.EAGER)
+//	private List<Laptop> laptop= new ArrayList<Laptop>();
 	
 	public int getEid() {
 		return eid;
@@ -50,12 +50,12 @@ public class Employee {
 	
 	
 
-	public List<Laptop> getLaptop() {
-		return laptop;
-	}
-	public void setLaptop(List<Laptop> laptop) {
-		this.laptop = laptop;
-	}
+//	public List<Laptop> getLaptop() {
+//		return laptop;
+//	}
+//	public void setLaptop(List<Laptop> laptop) {
+//		this.laptop = laptop;
+//	}
 	@Override
 	public String toString() {
 		return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + "]";
