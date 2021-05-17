@@ -3,6 +3,7 @@ package com.hibernateExample.HibernateExample;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -24,11 +25,11 @@ public class App
       
        session.beginTransaction(); 
        
- Query query = session.createQuery("from Employee where salary=500000");
- List<Employee> employee=query.list();
- 
- for(Employee e : employee)
-	 System.out.println(e);
+       SQLQuery query = session.createSQLQuery("select * from employee");
+       query.addEntity(Employee.class);
+       List<Employee> emplyees=query.list();
+       for(Employee e : emplyees)
+    	   System.out.println(e);
  
      session.getTransaction().commit();
      
